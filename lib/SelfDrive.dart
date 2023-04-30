@@ -3,9 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:need_moto/Car.dart';
 import 'package:need_moto/Home.dart';
+import 'package:need_moto/Request.dart';
 import 'package:need_moto/controller/Dropdown.dart';
 import 'package:need_moto/main.dart';
+
+import 'ReqCancle.dart';
+import 'ReqSent.dart';
 
 class SelfDrive extends StatelessWidget {
 
@@ -44,7 +49,8 @@ class SelfDrive extends StatelessWidget {
 
                             ),
                             child: GestureDetector(
-                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));},
+                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> Request()));},
+
                               child: Container(
                                 width: 50,
                                 height: 50,
@@ -67,7 +73,7 @@ class SelfDrive extends StatelessWidget {
 
                             ),
                             child: GestureDetector(
-                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));},
+                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> ReqSent()));},
                               child: Container(
                                 width: 50,
                                 height: 50,
@@ -92,7 +98,7 @@ class SelfDrive extends StatelessWidget {
 
                             ),
                             child: GestureDetector(
-                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));},
+                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> ReqCancle()));},
                               child: Container(
                                 width: 50,
                                 height: 50,
@@ -135,7 +141,6 @@ class SelfDrive extends StatelessWidget {
                 height: 1,
                 color: Colors.grey,),
                 SizedBox(height: 15,),
-
                 Container(
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
@@ -158,6 +163,54 @@ class SelfDrive extends StatelessWidget {
 
                   ),
                 ),
+                SizedBox(height: 5,),
+                Container(
+                  width: 350,
+                  height: 60,
+                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Vehicle need from Location'),),
+                ),
+                SizedBox(height: 25,),
+                Container(
+                  width: 350,
+                  height: 60,
+                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Destination'),),
+                ),
+                SizedBox(height: 25,),
+                Container(
+                  width: 350,
+                  height: 60,
+                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Pickup date & Time'),),
+                ),
+                SizedBox(height: 25,),
+                Container(
+                  width: 350,
+                  height: 60,
+                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Return date and Time'),),
+                ),
+                SizedBox(height: 25,),
+                Container(
+                  width: 350,
+                  height: 60,
+                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),suffixIcon: Icon(Icons.info_outline,color: Colors.blue,),labelText: 'Vehicle home delivery or self pickup'),),
+                ),
+                SizedBox(height: 25,),
+                Container(
+                  width: 350,
+                  height: 60,
+                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Purpose'),),
+                ),
+                SizedBox(height: 25,),
+                GestureDetector(
+                  onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> SelfDrive()));},
+                  child: Container(
+                    width: 250,
+                    height: 50,
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.orange,Colors.orangeAccent],stops: [0.1,0.7]),borderRadius: BorderRadius.circular(25)),
+                  child:Text('Find Vehicle',style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
+                  )
+                ),
+                SizedBox(height: 25,),
               ],
             ),
           ),
