@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:need_moto/controller/LogController.dart';
 
+import '../RequestAccepted.dart';
+import '../Request_Pending.dart';
+import '../Request_Rejected.dart';
+import '../controller/Request_Controller.dart';
+
 class LogScreen extends StatelessWidget {
   final logController = Get.put(LogController());
+  final requestController = Get.put(RequestController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,56 +25,69 @@ class LogScreen extends StatelessWidget {
             child: GetBuilder<LogController>(builder: (controller){
               return ListView.builder(itemCount: logController.productData.length, itemBuilder: (context, index) {
                 return Container(padding: EdgeInsets.all(5),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        color: Theme.of(context).primaryColor,width: 0
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> method1()));
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Theme.of(context).primaryColor,width: 0
+                        ),
+                        borderRadius: BorderRadius.circular(5),
                       ),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    elevation: 5,
-                    child: Column(
-                      children: [Padding(padding: EdgeInsets.all(10)),
-                        Container(
-                          width: 350,
-                          height: 25,
-                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(logController.productData[index].request,style: TextStyle(fontSize: 20),),
-                              Container(
-                                height: 30,
-                                width: 30,
-                                padding: EdgeInsets.all(0),
-                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                                child: Image.asset(logController.productData[index].reqImage),
-                              ),
-                            ],
+                      elevation: 5,
+                      child: Column(
+                        children: [Padding(padding: EdgeInsets.all(10)),
+                          Container(
+                            width: 350,
+                            height: 25,
+                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(logController.productData[index].request,style: TextStyle(fontSize: 20),),
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  padding: EdgeInsets.all(0),
+                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+                                  child: Image.asset(logController.productData[index].reqImage),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 10,),
-                        Container(
-                          width: 350,
-                          height: 20,
-                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Seats: ${logController.productData[index].seats}',style: TextStyle(fontSize: 17),),
-                              Text('Pickup: ${logController.productData[index].pickup}',style: TextStyle(fontSize: 17),),
-                            ],
+                          SizedBox(height: 10,),
+                          Container(
+                            width: 350,
+                            height: 20,
+                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('Seats: ${logController.productData[index].seats}',style: TextStyle(fontSize: 17),),
+                                Text('Pickup: ${logController.productData[index].pickup}',style: TextStyle(fontSize: 17),),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 10,),
-                        Container(
-                          width: 350,
-                          height: 25,
-                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Delivery: ${logController.productData[index].delivery}',style: TextStyle(fontSize: 17),),
-                              Text('Drop: ${logController.productData[index].drop}',style: TextStyle(fontSize: 17),)
-                            ],
+                          SizedBox(height: 10,),
+                          Container(
+                            width: 350,
+                            height: 25,
+                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('Delivery: ${logController.productData[index].delivery}',style: TextStyle(fontSize: 17),),
+                                Text('Drop: ${logController.productData[index].drop}',style: TextStyle(fontSize: 17),)
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 10,)
-                      ],
+                          SizedBox(height: 10,),
+                          Container(
+                            width: 200,
+                            height: 30,
+                            child: TextButton(
+                              onPressed: () { requestController.change(); },
+                              child: Text('click'),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 );
@@ -78,5 +97,17 @@ class LogScreen extends StatelessWidget {
         )
       ],),
     );
+  }
+
+  method1(){
+    if(logController.request == 'Request Accepted'){
+      return RequestAccepted();
+    }
+    else if(logController.productData == 'Request Rejected'){
+      return RequestRejected();
+    }
+    else{
+      return RequestPending();
+    }
   }
 }

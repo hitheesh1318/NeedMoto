@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 import 'package:need_moto/model/Log_model.dart';
 class LogController extends GetxController {
-  List<Request> productData = [];
+  RxList productData = [Request].obs;
+  RxString request = ''.obs;
 
   @override
   void onInit(){
@@ -10,7 +11,7 @@ class LogController extends GetxController {
   }
   fatchrequest() {
     List<Request> serverResponse = [
-      Request(request: 'Request Pending',
+      Request(request: 'Request Accepted',
           reqImage: 'assets/images/red.png',
           seats: 5,
           pickup: '23-03-23',
@@ -22,7 +23,7 @@ class LogController extends GetxController {
           pickup: '11-05-24',
           drop: '14-05-24',
           delivery: 'S.P'),
-      Request(request: 'Request Pending/Rejected',
+      Request(request: 'Request Rejected',
           reqImage: 'assets/images/red.png',
           seats: 5,
           pickup: '23-03-23',

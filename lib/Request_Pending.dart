@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import 'SelfDrive.dart';
 import 'controller/Request_Controller.dart';
 
-class ReqSent extends StatelessWidget {
-  RequestController controller = RequestController();
+
+
+class RequestPending extends StatelessWidget {
+
   final requestController = Get.put(RequestController());
+
+  RequestPending({Key? key}) : super(key: key);
 
 
   @override
@@ -183,7 +186,11 @@ class ReqSent extends StatelessWidget {
                   SizedBox(height: 50,),
                    SizedBox(width: 250,
                      height: 50,
-                     child: ElevatedButton(style:ElevatedButton.styleFrom(backgroundColor: Colors.orange,shape: StadiumBorder()),onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> SelfDrive()));}, child: Text('Cancle Request',style: TextStyle(color: Colors.white,fontSize: 30),)),)      ],
+                     child: ElevatedButton(style:ElevatedButton.styleFrom(backgroundColor: Colors.orange,shape: StadiumBorder()),
+                         onPressed: () {
+
+                         },
+                         child: Text('Cancle Request',style: TextStyle(color: Colors.white,fontSize: 30),)),)      ],
               ),
             ),
           ],
