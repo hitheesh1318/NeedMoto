@@ -103,7 +103,7 @@ class LogScreen extends StatelessWidget {
     if(logController.request == 'Request Accepted'){
       return RequestAccepted();
     }
-    else if(logController.productData == 'Request Rejected'){
+    else if(logController.request == 'Request Rejected'){
       return RequestRejected();
     }
     else{

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:need_moto/model/Log_model.dart';
 class LogController extends GetxController {
-  RxList productData = [Request].obs;
+  RxList productData = [].obs;
   RxString request = ''.obs;
 
   @override
