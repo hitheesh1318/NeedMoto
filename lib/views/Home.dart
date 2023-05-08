@@ -13,8 +13,8 @@ class Home extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.black),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: [Spacer(),
-          Container(width:50,height:50,child: Text('Need moto'),),Spacer(),
+        children: [Spacer(flex: 2,),
+          Container(padding: EdgeInsets.all(15),width:150,height:50,child: Text('Need Moto',style: TextStyle(fontSize: 18,fontWeight:FontWeight.w600,color: Colors.black),)),Spacer(),
           IconButton(onPressed: (){}, icon: Icon(Icons.search)),
           Badge(backgroundColor: Colors.green,
               child: IconButton(onPressed: (){}, icon: Icon(Icons.person)))

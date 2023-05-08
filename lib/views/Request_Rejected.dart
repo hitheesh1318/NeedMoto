@@ -80,13 +80,14 @@ class RequestRejected extends StatelessWidget {
                             width: 150,
                             height: 35,
                             child: TextField(
-                                decoration: InputDecoration(hintText: 'hyderabad'))),
+                                readOnly: true,
+                                decoration: InputDecoration(hintText: 'hyderabad',hintStyle: TextStyle(color: Colors.black)))),
                       ],
                     ),
                     SizedBox(
                       width: 35,
                       height: 10,
-                      child: IconButton(onPressed: () {  }, icon: Icon(Icons.swap_horiz,color: Colors.orange,),),
+                      child: IconButton(onPressed: () { }, icon: Icon(Icons.swap_horiz,color: Colors.orange,),),
                     ),
                     SizedBox(width: 5,),
                     Column(
@@ -100,7 +101,8 @@ class RequestRejected extends StatelessWidget {
                             width: 150,
                             height: 35,
                             child: TextField(
-                                decoration: InputDecoration(hintText: 'Chittoor'))),
+                                readOnly: true,
+                                decoration: InputDecoration(hintText: 'Chittoor',hintStyle: TextStyle(color: Colors.black)))),
                       ],
                     ),
                   ],
@@ -118,7 +120,8 @@ class RequestRejected extends StatelessWidget {
                             width: 150,
                             height: 35,
                             child: TextField(
-                                decoration: InputDecoration(hintText: '22-04-23'))),
+                                readOnly: true,
+                                decoration: InputDecoration(hintText: '22-04-23',hintStyle: TextStyle(color: Colors.black)))),
                       ],
                     ),
                     SizedBox(
@@ -138,7 +141,8 @@ class RequestRejected extends StatelessWidget {
                             width: 150,
                             height: 35,
                             child: TextField(
-                                decoration: InputDecoration(hintText: '24-02-23'))),
+                                readOnly: true,
+                                decoration: InputDecoration(hintText: '24-02-23',hintStyle: TextStyle(color: Colors.black)))),
                       ],
                     ),
                   ],
@@ -156,7 +160,8 @@ class RequestRejected extends StatelessWidget {
                             width: 150,
                             height: 35,
                             child: TextField(
-                                decoration: InputDecoration(hintText: 'Pickup'))),
+                                readOnly: true,
+                                decoration: InputDecoration(hintText: 'Pickup',hintStyle: TextStyle(color: Colors.black)))),
                       ],
                     ),
                     SizedBox(width: 35,),
@@ -171,12 +176,14 @@ class RequestRejected extends StatelessWidget {
                             width: 150,
                             height: 35,
                             child: TextField(
-                                decoration: InputDecoration(hintText: 'Function'))),
+                                readOnly: true,
+                                decoration: InputDecoration(hintText: 'Function',hintStyle: TextStyle(color: Colors.black)))),
                       ],
                     ),
                   ],
                 ),
                 SizedBox(height: 50,),
+
               ],
             ),
           ),
