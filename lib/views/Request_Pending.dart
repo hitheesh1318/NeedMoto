@@ -1,18 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-import 'controller/Request_Controller.dart';
 
 
 
 class RequestPending extends StatelessWidget {
 
-  final requestController = Get.put(RequestController());
-
   RequestPending({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +87,7 @@ class RequestPending extends StatelessWidget {
                        SizedBox(
                          width: 35,
                         height: 10,
-                         child: IconButton(onPressed: () {  }, icon: Icon(Icons.swap_horiz,color: Colors.orange,),),
+                         child: IconButton(onPressed: () { }, icon: Icon(Icons.swap_horiz,color: Colors.orange,),),
                        ),
                        SizedBox(width: 5,),
                        Column(

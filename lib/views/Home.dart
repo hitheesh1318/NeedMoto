@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:need_moto/ReqAccept.dart';
 import 'package:need_moto/views/Log_screen.dart';
 
 import 'SelfDrive.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
-
+//First screen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +14,7 @@ class Home extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [Spacer(),
-          Container(width:50,height:50,child: Image.asset('assets/car1.jpg'),),Spacer(),
+          Container(width:50,height:50,child: Text('Need moto'),),Spacer(),
           IconButton(onPressed: (){}, icon: Icon(Icons.search)),
           Badge(backgroundColor: Colors.green,
               child: IconButton(onPressed: (){}, icon: Icon(Icons.person)))
@@ -23,10 +22,11 @@ class Home extends StatelessWidget {
         ],
       ),),
       drawer: Drawer(child: Text('drawer'),),
+      //Customer portal
       body: SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.start,
                       children: [Padding(padding: EdgeInsets.all(20)),Align(alignment: Alignment.center,),
-                        Text('Welcome to Rush Wheels',style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold),),
+                        Text('Welcome to Need Moto',style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold),),
                         SizedBox(height: 10,),
                         Container(
                           padding: EdgeInsets.all(10),
@@ -52,6 +52,7 @@ class Home extends StatelessWidget {
                         SizedBox(height: 20,),
                         Text('Rent your Vehicle',style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold)),
                         SizedBox(height: 10,),
+                        //Owner portal
                         Container(
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),color: Colors.lightGreenAccent.shade100,),
@@ -82,6 +83,8 @@ class Home extends StatelessWidget {
                       ],
         ),
       ),
+
+      //log screen portal
       floatingActionButton: FloatingActionButton(child: Icon(Icons.hourglass_bottom),backgroundColor: Colors.orange,onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> LogScreen()));},),
     );
   }

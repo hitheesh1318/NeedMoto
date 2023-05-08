@@ -1,20 +1,15 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:need_moto/Car.dart';
-import 'package:need_moto/Home.dart';
-import 'package:need_moto/Request.dart';
+import 'package:need_moto/views/Home.dart';
+import 'package:need_moto/views/Car_Screen.dart';
 import 'package:need_moto/controller/Dropdown.dart';
-import 'package:need_moto/main.dart';
 
-import 'ReqCancle.dart';
-import 'ReqSent.dart';
 
 class SelfDrive extends StatelessWidget {
-
+ //Dropdown Controller
   DropdownController controller = DropdownController();
+  //Options display
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar(backgroundColor:Colors.white,
@@ -22,7 +17,7 @@ class SelfDrive extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [Spacer(),
-          Container(width:50,height:50,child: Image.asset('assets/car1.jpg'),),Spacer(),
+          Container(width:50,height:50,child: Image.asset('Need Moto'),),Spacer(),
           IconButton(onPressed: (){}, icon: Icon(Icons.search)),
           IconButton(onPressed: (){}, icon: Icon(Icons.person))
 
@@ -49,7 +44,7 @@ class SelfDrive extends StatelessWidget {
 
                             ),
                             child: GestureDetector(
-                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> Request()));},
+                              onTap: (){},
 
                               child: Container(
                                 width: 50,
@@ -73,7 +68,7 @@ class SelfDrive extends StatelessWidget {
 
                             ),
                             child: GestureDetector(
-                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> ReqSent()));},
+                              onTap: (){},
                               child: Container(
                                 width: 50,
                                 height: 50,
@@ -98,7 +93,7 @@ class SelfDrive extends StatelessWidget {
 
                             ),
                             child: GestureDetector(
-                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> ReqCancle()));},
+                              onTap: (){},
                               child: Container(
                                 width: 50,
                                 height: 50,
@@ -121,7 +116,7 @@ class SelfDrive extends StatelessWidget {
 
                             ),
                             child: GestureDetector(
-                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));},
+                              onTap: (){},
                               child: Container(
                                 width: 50,
                                 height: 50,
@@ -137,6 +132,8 @@ class SelfDrive extends StatelessWidget {
                     ],
                   ),
                 SizedBox(height: 15,),
+
+                //Customer details
                 Container(width: double.infinity,
                 height: 1,
                 color: Colors.grey,),
@@ -144,9 +141,8 @@ class SelfDrive extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-
+                  //Controller usage
                   child: DropdownSearch(
-
                     popupProps: PopupProps.menu(constraints: BoxConstraints(maxHeight: 200),),
                     items: controller.options,
 
@@ -200,8 +196,9 @@ class SelfDrive extends StatelessWidget {
                   child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Purpose'),),
                 ),
                 SizedBox(height: 25,),
+                //car details display button
                 GestureDetector(
-                  onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> SelfDrive()));},
+                  onTap: () {},
                   child: Container(
                     width: 250,
                     height: 50,
