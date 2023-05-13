@@ -1,6 +1,9 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:need_moto/controller/DateController.dart';
 import 'package:need_moto/views/Home.dart';
 import 'package:need_moto/views/Car_Screen.dart';
 import 'package:need_moto/controller/Dropdown.dart';
@@ -9,6 +12,7 @@ import 'package:need_moto/controller/Dropdown.dart';
 class SelfDrive extends StatelessWidget {
  //Dropdown Controller
   DropdownController controller = DropdownController();
+  DateController Controller = DateController();
   //Options display
   @override
   Widget build(BuildContext context) {
@@ -175,25 +179,45 @@ class SelfDrive extends StatelessWidget {
                 Container(
                   width: 350,
                   height: 60,
-                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Pickup date & Time'),),
+                  child: TextField( controller: Controller.textEditingController,
+                    readOnly: true,
+                    onTap: () => Controller.chooseDate(context),
+                    decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Pickup date & Time'),),
                 ),
                 SizedBox(height: 25,),
                 Container(
                   width: 350,
                   height: 60,
-                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Return date and Time'),),
+                  child: TextField( controller: Controller.textEditingController2,
+                    readOnly: true,
+                    onTap: () => Controller.selectDate(context),decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Return date and Time'),),
+                ),
+                SizedBox(height: 25,),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                  //Controller usage
+                  child: DropdownSearch(
+                    popupProps: PopupProps.menu(constraints: BoxConstraints(maxHeight: 200),searchDelay: Duration(milliseconds: 500)),
+                    items: controller.option,
+                    dropdownDecoratorProps: DropDownDecoratorProps(
+                        dropdownSearchDecoration: InputDecoration(
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+                          labelText: 'Delivery',
+                        )
+                    ),
+                    onChanged: (value){
+                      controller.setvalue(value!);
+                    },
+                    selectedItem: controller.selectType,
+
+                  ),
                 ),
                 SizedBox(height: 25,),
                 Container(
                   width: 350,
                   height: 60,
-                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),suffixIcon: Icon(Icons.info_outline,color: Colors.blue,),labelText: 'Vehicle home delivery or self pickup'),),
-                ),
-                SizedBox(height: 25,),
-                Container(
-                  width: 350,
-                  height: 60,
-                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),labelText: 'Purpose'),),
+                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(30),),labelText: 'Purpose'),),
                 ),
                 SizedBox(height: 25,),
                 //car details display button
